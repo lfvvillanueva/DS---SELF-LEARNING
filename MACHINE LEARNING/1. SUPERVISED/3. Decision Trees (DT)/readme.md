@@ -1,4 +1,4 @@
-# Decision Trees (DT) en README.md para GitHub
+# Decision Trees (DT)
 
 ## Introducción
 
