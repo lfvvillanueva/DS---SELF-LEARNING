@@ -13,7 +13,8 @@ class LogisticRegression():
         self.lr = lr             # Tasa de aprendizaje para el algoritmo de optimización.
         self.n_iters = n_iters   # Número de iteraciones para el algoritmo de optimización.
         self.weights = None     # Pesos del modelo, se inicializarán más tarde.
-        self.bias = None        # Término de sesgo, también se inicializará más tarde.
+        self.bias = None
+        self.costs = []     # Término de sesgo, también se inicializará más tarde.
 
     # Método para entrenar el modelo.
     def fit(self, X, y):
@@ -33,6 +34,8 @@ class LogisticRegression():
             # Calculando el gradiente de los pesos y el sesgo.
             dw = (1 / n_samples) * np.dot(X.T, (predictions - y))
             db = (1 / n_samples) * np.sum(predictions - y)
+            cost = (-1/n_samples) * np.sum(y * np.log(predictions) + (1-y) * np.log(1-predictions))
+            self.costs.append(cost)  # Almacenar el costo
 
             # Actualizando los pesos y el sesgo en dirección opuesta al gradiente.
             self.weights = self.weights - self.lr * dw
@@ -49,4 +52,4 @@ class LogisticRegression():
         return class_pred
     
 #From: https://github.com/AssemblyAI-Examples/Machine-Learning-From-Scratch
-#Video: 
+#Video: https://www.youtube.com/watch?v=YYEJ_GUguHw
