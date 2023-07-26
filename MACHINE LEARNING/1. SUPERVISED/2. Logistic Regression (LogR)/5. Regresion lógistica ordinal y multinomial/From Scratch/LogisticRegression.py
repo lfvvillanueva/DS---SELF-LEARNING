@@ -47,3 +47,6 @@ class LogisticRegression():
         # Clasificando las probabilidades en 0 o 1 basado en un umbral de 0.5.
         class_pred = [0 if y <= 0.5 else 1 for y in y_pred]
         return class_pred
+    
+#From: https://github.com/AssemblyAI-Examples/Machine-Learning-From-Scratch
+#Video: 
